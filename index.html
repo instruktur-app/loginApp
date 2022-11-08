@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="login">
+        HELO
+    </h1>
+    <div class="login">
+        <form id = "login">
+            <label for="email">
+                email
+            </label>
+            <input type="email">
+            <label for="password">
+                password
+            </label>
+            <input type="password">
+            <button type = "submit">
+                submit
+            </button>
+        </form>
+    </div>
+    <div id="home">
+        <h1>
+            ini halaman setelah login
+        </h1>
+        <button id="logout">
+            logout
+        </button>
+    </div>
+    <script>
+        var home = document.getElementById("home")
+        var loginForm = document.getElementsByClassName("login")[1]
+        console.log(loginForm)
+        home.style.display = "none"
+        function login (email, password){
+            if (email == "admin@admin.com" && password == "rahasia"){
+                alert ("berhasil login")
+                home.style.display = "block"
+                loginForm.style.display = "none"
+            }
+            else {
+                alert ("gagal login")
+            }
+        }
+        function logout(){
+            home.style.display = "none"
+            loginForm.style.display = "block"
+        }
+        document.getElementById("logout").addEventListener("click", logout)
+    let log_in = document.getElementById("login")
+    log_in.addEventListener("submit", function(event){
+        event.preventDefault()
+        var email = document.querySelector("input[type=email]").value
+        var password = document.querySelector("input[type=password]").value
+        login(email, password)
+    });
+    </script>
+</body>
+</html>
